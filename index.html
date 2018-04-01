@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var code;
+      $("#submit").click(function() {
+        code = $("#code").val();
+      var x = document.getElementById("lang").value;
+	  $.post("http://localhost:3000/save", {
+          code: code,
+		  lang: x
+        }, function(data) {
+
+data=JSON.parse(data);   
+       
+ var txt=data.result.stdout;
+if(txt==null){
+ var txt=data.result.compilemessage;
+   var output = "";
+    for (var i=0; i<txt.length; i++) {
+        if (txt.charCodeAt(i) <= 127) {
+            output += txt.charAt(i);
+        }
+    } }
+   document.getElementById("output").innerHTML = output;       
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+ 
+
+ <select id="lang" size="4">
+    <option value=1>C</option>
+    <option value=2>C++</option>
+    <option value=3>Java</option>
+    <option value=5>Python</option>
+    </select>
+ <h3>code</h3>
+  
+ <textarea id="code" rows="20" cols="50"></textarea>
+  <br>
+  <input type="button" id="submit" value="Submit">
+<br/>
+ <h3>Output</h3>
+<textarea id="output" rows="15" cols="30"></textarea>
+</body>
+
+</html>

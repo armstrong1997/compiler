@@ -1,0 +1,25 @@
+{
+  "name": "Compiler",
+  "version": "0.1.2",
+  "description": "compiler api hackerrank",
+  "scripts": {
+    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
+  },
+  "keywords": [
+    "HackerRank",
+    "machines",
+    "machinepack"
+  ],
+  "author": "Arul Armstrong <s.arularmstrong@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "machine": "^3.0.0"
+  },
+  "devDependencies": {
+    "test-machinepack-mocha": "^0.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arularmstrong/compiler.git"
+  }
+}
